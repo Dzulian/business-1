@@ -16,7 +16,7 @@ public class Main {
         Company terravita = new Company(countryPoland,"Terravita");
         Company volkswagen = new Company(countryGermany,"Volkswagen");
 
-        Employee employee1 = new Employee("Hans","Schulz", LocalDate.of(1970,02,10));
+        Employee employee1 = new Employee("Hans","Schulz", LocalDate.of(1945,02,10));
         Employee employee2 = new Employee("Andreas","Schulz22", LocalDate.of(2001,02,10));
         terravita.setEmployees(null);
         volkswagen.setEmployees(new Employee[]{employee1,employee2});
@@ -32,10 +32,18 @@ public class Main {
             }
         }
 
-        for(Employee employee: volkswagen.getRetiredEmployees(LocalDate.of(2040,3,4)))
-        {
+        for(Employee employee: volkswagen.getRetiredEmployees(LocalDate.of(2080,3,4))) {
             System.out.println(employee);
         }
+
+        for(Employee employee: volkswagen.getRetiredEmployees() ) {
+            System.out.println("NOW:"+employee);
+        }
+
+        for (Company company: new Company[]{terravita,volkswagen}) {
+            company.raise(900);
+        }
+
     }
 
 
